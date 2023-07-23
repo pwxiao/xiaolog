@@ -1,0 +1,135 @@
+theme:
+  name: material
+
+  language: zh
+  custom_dir: overrides
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - toc.integrate
+    - navigation.top
+
+
+  palette: 
+
+    # Palette toggle for light mode
+    - scheme: default
+      primary: white
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: black
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  feature:
+    tabs: true
+  font:
+    text: JetBrains Mono
+    code: JetBrains Mono
+  icon:
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+    logo: material/notebook-outline
+
+
+plugins:
+  - search
+  - statistics
+markdown_extensions:
+
+  - meta
+  - attr_list
+  - md_in_html
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.arithmatex:
+      generic: true
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - footnotes
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+extra_javascript:
+  - https://cusdis.com/js/cusdis.es.js
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+repo_name: pwxiao.top
+repo_url: https://github.com/pwxiao/pwxiao.github.io
+
+site_name: Xiaolog
+site_description: 笔记本
+site_author: pwxiao
+site_url: https://blog.pwxiao.top
+copyright: Copyright © 2022 <a href="https://blog.pwxiao.top">Powered by pwxiao.top 版权所有</a>
+
+extra:
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/pwxiao
+    - icon: fontawesome/brands/gitter
+      link: https://gitter.im/squidfunk/mkdocs-material
+
+nav:
+  - 主页: index.md
+  - 博客:
+    - Plotter: blog/plotter.md
+    - 傅里叶级数证明巴塞尔问题: blog/proof_fourier.md
+    - 十大经济学原理: blog/econimicsLaw.md
+    - 正则表达式: blog/zzexpression.md
+    - 2022年度总结: blog/2022summary.md
+    - 搭建过程: blog/new.md
+    - 记一次解谜经历: blog/letitsnow.md
+    - 为你的MKDOCS搭建评论系统: blog/buildcomment.md
+  - c++: 
+    - 小TIPS: cpp/cindex.md
+    - C++进阶: cpp/c++进阶.md
+  - python: 
+    - python习题: python/1.md
+    - 基于Vercel和Flask部署API: python/vercel_deploy_api.md
+    - 校园网自动登录: python/login_net.md
+  - Java: 
+    - Java习题: Java/java2022.md
+    - ADB命令大全: Java/adbcodes.md
+  - 我的作品: work/studybar.md
+  - 算法&题目 :
+    - 常见算法: algorithm/常见算法.md
+    - 利用taichi加速Python: algorithm/利用Taichi加速Python.md
+    - Taichi入门: algorithm/Taichi入门.md
+    - 分解质因数: algorithm/分解质因数.md
+    - 洛谷-过河卒: algorithm/洛谷-过河卒.md 
+
+
