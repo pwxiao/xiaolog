@@ -61,6 +61,8 @@ else:
 ## 2023
 
 ### 7月22日
+- [本站完美迁移至Vercel](blog/trans_to_vercel.md)
+### 7月22日
 - [Vercel+Flask部署API](python/vercel_deploy_api.md)
 ### 6月22日
 - [Plotter](blog/plotter.md)

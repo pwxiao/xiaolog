@@ -107,6 +107,7 @@ nav:
   - 主页: index.md
   - 博客:
     - Plotter: blog/plotter.md
+    - 本站完美迁移至Vercel: blog/trans_to_vercel.md
     - 傅里叶级数证明巴塞尔问题: blog/proof_fourier.md
     - 十大经济学原理: blog/econimicsLaw.md
     - 正则表达式: blog/zzexpression.md
