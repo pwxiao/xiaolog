@@ -60,6 +60,9 @@ else:
 [最近更新](#){ .md-button }
 ## 2023
 
+### 8月14日
+- [小工具上线](python/2023814.md)
+
 ### 7月22日
 - [本站完美迁移至Vercel](blog/trans_to_vercel.md)
 ### 7月22日
