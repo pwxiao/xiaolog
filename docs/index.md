@@ -18,6 +18,19 @@ statistics: true
 
 
         网站运行时间：<span id="web-time"></span>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?28f18450da302a3ecb5dafd02685a81f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 <script>
 function updateTime() {
     var date = new Date();
