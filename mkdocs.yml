@@ -55,7 +55,6 @@ theme:
 plugins:
   - search
   - statistics
-  - with-pdf
 markdown_extensions:
 
   - meta
