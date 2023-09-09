@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "2844f156e9041f78",
+        "id": "faa026f5312d5489",
         "type": "tabs",
         "children": [
           {
-            "id": "55688298d82b1efd",
+            "id": "81abc65873f790b5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.md",
+                "file": "python/机器人协会学习成果.md",
                 "mode": "source",
                 "source": true
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "index.md",
+                "file": "python/机器人协会学习成果.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "index.md",
+                "file": "python/机器人协会学习成果.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "index.md"
+                "file": "python/机器人协会学习成果.md"
               }
             }
           }
@@ -135,13 +135,15 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "5306d2367d1478d6",
+  "active": "81abc65873f790b5",
   "lastOpenFiles": [
+    "changelog.md",
+    "python/机器人协会学习成果.md",
+    "index.md",
     "python/2023814.md",
     "未命名 1.canvas",
     "第二周总结.md",
     "未命名.canvas",
-    "index.md",
     "blog/opencvlearn.md",
     "cpp/cindex.md",
     "algorithm/c++实现卷积.md",

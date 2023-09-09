@@ -123,6 +123,7 @@ nav:
     - python习题: python/1.md
     - 基于Vercel和Flask部署API: python/vercel_deploy_api.md
     - 校园网自动登录: python/login_net.md
+    - 智能零售商品识别: python/lean_in_jixie.md
   - Java: 
     - Java习题: Java/java2022.md
     - ADB命令大全: Java/adbcodes.md

@@ -73,6 +73,9 @@ else:
 [最近更新](#){ .md-button }
 ## 2023
 
+### 9月9日
+- [智能零售商品识别](python/lean_in_jixie.md)
+
 ### 8月14日
 - [小工具上线](python/2023814.md)
 
