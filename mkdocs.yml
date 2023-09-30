@@ -106,6 +106,7 @@ extra:
 nav:
   - 主页: index.md
   - 博客:
+    - 如何提交PR: blog/howtosubmitpr.md
     - Plotter: blog/plotter.md
     - 本站完美迁移至Vercel: blog/trans_to_vercel.md
     - 傅里叶级数证明巴塞尔问题: blog/proof_fourier.md

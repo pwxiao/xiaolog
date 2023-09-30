@@ -73,6 +73,8 @@ else:
 [最近更新](#){ .md-button }
 ## 2023
 
+### 9月30日
+- [如何提交PR](blog/howtosubmitpr.md)
 ### 9月9日
 - [智能零售商品识别](python/lean_in_jixie.md)
 
