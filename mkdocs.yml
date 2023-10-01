@@ -31,9 +31,9 @@ theme:
         icon: material/weather-night
         name: Switch to light mode
   feature:
-    tabs: true
+    tabs: false
   font:
-    text: JetBrains Mono
+    text: Share Tech
     code: JetBrains Mono
   icon:
     admonition:
