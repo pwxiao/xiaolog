@@ -56,7 +56,6 @@ plugins:
   - search
   - statistics
 markdown_extensions:
-
   - meta
   - attr_list
   - md_in_html
@@ -79,7 +78,7 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
 
-  extra_css:
+extra_css:
   - css/custom.css
 
 extra_javascript:
