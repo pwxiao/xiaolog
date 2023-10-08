@@ -79,6 +79,9 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
 
+  extra_css:
+  - css/custom.css
+
 extra_javascript:
   - https://cusdis.com/js/cusdis.es.js
   - javascripts/mathjax.js
