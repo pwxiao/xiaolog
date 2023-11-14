@@ -73,6 +73,8 @@ else:
 [最近更新](#){ .md-button }
 ## 2023
 
+### 11月14日
+- [AUSTCTF2023 WriteUp](blog/austctf2023.md)
 ### 9月30日
 - [如何提交PR](blog/howtosubmitpr.md)
 ### 9月9日
