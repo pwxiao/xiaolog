@@ -112,6 +112,7 @@ extra:
 nav:
   - 主页: index.md
   - 博客:
+    - 好好好课程表重构记录: blog/gooodclass_develop_diary.md
     - AUSTCTF2023 WriteUp: blog/austctf2023.md
     - 如何提交PR: blog/howtosubmitpr.md
     - Plotter: blog/plotter.md
