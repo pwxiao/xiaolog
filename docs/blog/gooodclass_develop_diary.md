@@ -1,6 +1,6 @@
-# 好好好课程表重构开发 记录
+# 
 
-## 前情提要
+## 引入
 
 近日偶然发现了easy-connect这一工具，可以基于docker实现免图形界面登录校园网，他的功能与图形界面版无异，但是由于是命令行版本，在Linux中安装也非常方便，于是我想到这一工具部署在服务器实现代理，再转发访问教务系统的请求，这样就可以直接请求我的服务器获取到教务系统信息，而无需本地再次登陆校园网。
 
@@ -204,7 +204,125 @@ kill -9 pid
 
 ## 前端
 
+基于flutter开发课程表的原因就是因为其跨平台特性，可以运行在web，ios，Windows以及Android端，这样可以极大可能收获用户。
 
+下面记录flutter开发过程中的踩过的坑
+
+### 1.修改flutterapp应用工程名称为gooodclaas之后，build异常
+
+这时候只要在终端输入
+
+```bash
+flutter clean
+```
+
+### 2.flutter android 网络权限问题
+
+在调试(debug)模式下不需要网络权限也能获取到课程数据，但是当发布为realease版本后，需要在app manifest 文件中加入网络权限（跟Android原生开发类似）
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+```
+
+这样app才能成功访问到网络.
+
+
+
+### 3.flutter android签名问题
+
+安卓应用发布都需要签名，而我开发的app都使用的我的专属签名pwxiao.jks，该签名创建后保存在了我的设备上，现在需要使用这个签名对我的flutter app进行签名
+
+这个过程在官网有教程
+
+#### 从 app 中引用密钥库
+
+创建一个名为 `[project]/android/key.properties` 的文件，它包含了密钥库位置的定义。在替换内容时请去除 `< >` 括号：
+
+```
+storePassword=<password-from-previous-step>
+keyPassword=<password-from-previous-step>
+keyAlias=upload
+storeFile=<keystore-file-location>
+```
+
+`storeFile` 在 Windows 上类似于 `C:\\Users\\<user name>\\upload-keystore.jks`。
+
+#### 在 gradle 中配置签名
+
+在以 release 模式下构建你的应用时，修改 `[project]/android/app/build.gradle` 文件，以通过 gradle 配置你的上传密钥。
+
+1. 在 `android` 代码块之前将你 properties 文件的密钥库信息添加进去：
+
+   *content_copy*
+
+   ```
+      def keystoreProperties = new Properties()
+      def keystorePropertiesFile = rootProject.file('key.properties')
+      if (keystorePropertiesFile.exists()) {
+          keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+      }
+   
+      android {
+            ...
+      }
+   ```
+
+   将 `key.properties` 文件加载到 `keystoreProperties` 对象中。
+
+2. 找到 `buildTypes` 代码块：
+
+   ```
+      buildTypes {
+          release {
+              // TODO: Add your own signing config for the release build.
+              // Signing with the debug keys for now,
+              // so `flutter run --release` works.
+              signingConfig signingConfigs.debug
+          }
+      }
+   ```
+
+   将其替换为我们的配置内容：
+
+   ```
+      signingConfigs {
+          release {
+              keyAlias keystoreProperties['keyAlias']
+              keyPassword keystoreProperties['keyPassword']
+              storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+              storePassword keystoreProperties['storePassword']
+          }
+      }
+      buildTypes {
+          release {
+              signingConfig signingConfigs.release
+          }
+      }
+   ```
+
+现在flutter app 的发布版本就会被自动签名了。
+
+
+
+#### 4.flutter web在某些浏览器中获取课程表失败的问题
+
+当部署到vercel服务器时，网站会采用https加密，但是获取课表过程中需要向我的服务器请求数据，而我的服务器使用的http协议，没有使用https加密，而有些浏览器（目前已知的有chrome,edge,safari）的安全策略比较严格，会组织这种请求
+
+console输出如下：
+
+```javascript
+main.dart.js:40476  Mixed Content: The page at 'https://app.pwxiao.top/' was loaded over HTTPS, but requested an insecure XMLHttpRequest endpoint 'http://xxxxxxx'. This request has been blocked; the content must be served over HTTPS
+```
+
+目前暂未解决这个问题，网上提到使用nignx反向代理，获取以后会解决
+
+
+
+
+
+
+
+暂未完结，更新中。。。。。
 
 
 
