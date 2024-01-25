@@ -8,7 +8,7 @@
 
 ，以此来解决只有Android用户能使用的限制。
 
-🆗，easy-connect和flutter就是两大法宝，我会借助前者进行服务器后端开发用来展示教务系统信息，后者进行前端app和web开发来展示教务系统信息。工程量巨大。。。
+🆗，easy-connect和flutter就是两大法宝，我会借助前者进行服务器后端开发用来展示教务系统信息，后者进行前端app和web开发来展示教务系统信息。
 
 下面我会从前端和后端两个方面来记录我的开发历程与心得
 
@@ -18,7 +18,7 @@
 
 首先进行后端开发，根据网上关于docker-easyconnect的使用教程，我首先得买一台Linux服务器，正好之前在哔哩哔哩上有人推荐的阿里云ecs，99元/年，虽然各大公司的云产品的价格相比几年前下降了不少，但我还是咬咬牙买下了一台 Ubuntu 18.04
 
-接下来安装docker-easyconnect
+### 安装docker-easyconnect
 
 1.首先安装docker
 
@@ -46,7 +46,7 @@ docker run --device /dev/net/tun --cap-add NET_ADMIN -ti -p 127.0.0.1:1080:1080 
 
 注意，这里的教务系统ip只能是ip格式，可以通过ping 命令来获取ip
 
-现在docker-easyconnect就算部署成功
+现在`docker-easyconnect`就算部署成功
 
 我们使用写一个python测试一下是否能正确访问教务系统
 
@@ -58,15 +58,17 @@ print(r.statuscode)
 
 当statuscode为200时代表部署成功。
 
+### Flask搭建api
 
-
-接下来是教务系统课表等内容的获取，这个在之前在编写原生Android版好好好课程表时候我已经使用python写好了，由于python也跨平台，我可以使用之前写的脚本。
+下一步是教务系统课表等内容的获取，这个在之前在编写原生Android版好好好课程表时候我已经使用python写好了，由于python也跨平台，我可以使用之前写的脚本。
 
 获取到课程表数据之后我该如何以api的形式返回给客户端呢，我想到了Flask，由于之前部署在网页端的项目几乎都是用Flask搭建的，这个api的搭建对我来说也显得轻车熟路，
 
 下面记录一下踩坑记录以及我是如何解决的
 
-1.问题：linux端跑Windows端写好的python代码出现编码错误问题
+
+
+#### 1.问题：linux端跑Windows端写好的python代码出现编码错误问题
 
 解决：在python文件之前加上下面代码
 
@@ -75,7 +77,7 @@ print(r.statuscode)
 # -*- coding: UTF-8 -*-
 ```
 
-2.问题：每次成功请求到一个用户的信息时，下载输入错误的信息仍然嗯请求得到
+#### 2.问题：每次成功请求到一个用户的信息时，下载输入错误的信息仍然嗯请求得到
 
 解决：
 这个问题困扰我半天，我第一反应就是cookie的问题，但是误以为时Flask每次请求后保存的cookie，因为当我直接执行获取课表的py脚本时不会出现这个问题，我网上找了好多资料来清除Flask的cookie，都没有效果，山重水复之际，我将实现转到了py脚本，我尝试了在代码中连续模拟请求两次（不中断程序），结果问题复发了，这说明就是脚本自身问题与Flask无关。
@@ -90,13 +92,13 @@ print(r.statuscode)
 
 
 
-3.api的健壮性问题
+#### 3.API的健壮性
 
 当输入表单信息有误时，可能会触发500错误，根据Flask的报错信息，我发现时由于代码中没有做异常处理，于是我对代码进行优化，在可能出现错误的地方进行了判断，极大提高了api的健壮性与容错能力
 
 
 
-4.在使用flask run启动Flask服务时，会显示warning
+#### 4.在使用flask run启动Flask服务时，会显示warning
 
 ```bash
  * Debug mode: off
@@ -107,7 +109,7 @@ Press CTRL+C to quit
 
 这些都是由于flask没有运行在稳定的环境
 
-我们可以使用Gunicorn来帮忙
+我们可以使用`Gunicorn`来帮忙
 
 安装Gunicorn
 
@@ -121,7 +123,7 @@ pip install gunicorn
 gunicorn -b 0.0.0.0:8000 app:app
 ```
 
-5.在命令行中启动服务，退出时会导致服务终止
+#### 5.在命令行中启动服务，退出时会导致服务终止
 
 我们需要安装进程管理软件实现的进程管理，使得在推出服务器之后服务仍然能正常运行，我们这里使用Supervisor
 
@@ -172,7 +174,7 @@ sudo supervisorctl restart gunicorn
 sudo supervisorctl status
 ```
 
-6.api在外网无法访问
+#### 6.api在外网无法访问
 
 这里要指定flask服务运行在0.0.0.0
 
@@ -180,9 +182,9 @@ sudo supervisorctl status
 gunicorn -b 0.0.0.0:5000 app:app
 ```
 
-并且由于阿里云的安全策略，我们需要在安全组中开放5000端口
+并且由于阿里云的安全策略，我们需要在`安全组`中开放5000端口
 
-7.重新进入服务器非重启关闭服务
+#### 7.重新进入服务器非重启关闭服务
 
 先使用
 
@@ -230,7 +232,7 @@ flutter clean
 
 ### 3.flutter android签名问题
 
-安卓应用发布都需要签名，而我开发的app都使用的我的专属签名pwxiao.jks，该签名创建后保存在了我的设备上，现在需要使用这个签名对我的flutter app进行签名
+安卓应用发布都需要签名，而我开发的app都使用的我的签名pwxiao.jks，该签名创建后保存在了我的设备上，现在需要使用这个签名对我的flutter app进行签名
 
 这个过程在官网有教程
 
@@ -319,6 +321,32 @@ main.dart.js:40476  Mixed Content: The page at 'https://app.pwxiao.top/' was loa
 
 
 
+
+#### 5.flutter 类型转换的问题
+
+dart语言中
+
+在写一周课表功能的过程中，我发现在web平台能正确加载，而在Android平台则会抛出异常，我通过debug将问题锁定在了下面这一行代码
+
+```dart
+int VisualstartJie = ((startJie-1)/2) as int;
+```
+
+这段代码一开始我想的是根据课程json中的startJie转换成他在课程表中竖列的坐标，
+
+一开始是这样
+
+```dart
+int VisualstartJie = ((startJie-1)/2);
+```
+
+但这样可能会有一个问题，当startJie为偶数时，((startJie-1)/2)的值会是浮点数，ide也给出了错误提示，`A value of type 'double' can't be assigned to a variable of type 'int'. `于是我通过ide的自动修复在代码后面加上了`as int`，这样没有报错，web平台也正常和运行，但是很奇怪这样在Android平台是跑不成的,当我将代码写成
+
+```dart
+int VisualstartJie = ((startJie-1)/2).toInt();
+```
+
+则能跑通，暂时还不明白两个平台在这方面有什么区别.
 
 
 
