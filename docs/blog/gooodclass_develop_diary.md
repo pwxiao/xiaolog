@@ -354,9 +354,26 @@ int VisualstartJie = ((startJie-1)/2).toInt();
 
 
 
+#### 7.flutter android 的自动更新问题
 
 
 
+Android app不同于网站，不会自动更新，，需要自己编写更新功能，再flutter项目中，会创建有Android项目供自定义安卓端的内容，正好我是从原生安卓转Flutter，并且在之前原生安卓版的好好好课程表项目已经编写了这一功能，故可以直接使用之前的代码。不过还是遇到有一些问题，下面是详细步骤
+
+
+
+在之前的更新代码中用到了okhttpy以及json处理等库，在flutter项项目中这些库需要我们自己添加
+
+1.找到moudule为app的build.gradle，添加
+
+```gradle
+dependencies {
+    implementation 'androidx.annotation:annotation:1.7.1'
+    ...这里添加你需要导入的库
+}
+```
+
+点击sync now
 
 
 
