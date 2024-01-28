@@ -1,6 +1,6 @@
 ## 体系架构
 
-![structure](D:\xiaolog\docs\blog\structure.png)
+![structure](structure.png)
 
 
 
