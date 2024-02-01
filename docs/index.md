@@ -73,7 +73,7 @@ else:
 [最近更新](#){ .md-button }
 ## 2024
 ### 1月24日
-- [好好好课程表重构分享](blog/gooodclass_develop_diary.md)
+- [课程表重构记录](blog/gooodclass_develop_diary.md)
 
 ## 2023
 ### 12月24日
