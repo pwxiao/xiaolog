@@ -26,7 +26,7 @@
 2. 在前端服务器中设置nginx反向代理
 3. 在前端html中添加
 
-```
+```html
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 ```
 
@@ -42,7 +42,7 @@
 
 ### 用重新用Vercel部署一个API,首先通过get请求服务器内容，再通过API返回。
 
-```
+```python
 @app.route('/api/base', methods=['GET'])
 def hello_world():
     username = request.args.get('username')
@@ -56,7 +56,7 @@ def hello_world():
 
 我们需要添加以下代码
 
-```
+```python
 from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
