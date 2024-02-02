@@ -72,6 +72,8 @@ else:
 ```
 [最近更新](#){ .md-button }
 ## 2024
+### 2月2日
+- [解决Mixed Content问题的另一种方案](blog/fixed_mixed_conetent.md)
 ### 1月24日
 - [课程表重构记录](blog/gooodclass_develop_diary.md)
 
