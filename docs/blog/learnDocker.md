@@ -92,7 +92,7 @@ docker run  -d ubuntu:15.10 /bin/sh -c "while true; do echo hello,world;sleep 1;
 docker ps
 ```
 
-![image-20240323120133672](D:\xiaolog\docs\blog\image-20240323120133672.png)
+![image-20240323120133672](image-20240323120133672.png)
 
 输出详情介绍：
 
@@ -205,7 +205,7 @@ docker pull training/webapp
 docker run -d traning/webapp python app.py
 ```
 
-![image-20240323122911630](C:\Users\colds\AppData\Roaming\Typora\typora-user-images\image-20240323122911630.png)
+![image-20240323122911630](image-20240323122911630.png)
 
 指定某一端口映射，可使用-p参数
 
