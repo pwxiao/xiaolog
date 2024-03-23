@@ -72,6 +72,9 @@ else:
 ```
 [最近更新](#){ .md-button }
 ## 2024
+
+### 3月23日
+- [深度学习与机器学习](blog/ml_dl_differ.md)
 ### 2月2日
 - [解决Mixed Content问题的另一种方案](blog/fixed_mixed_conetnt.md)
 ### 1月24日
